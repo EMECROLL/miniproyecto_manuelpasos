@@ -1,12 +1,12 @@
 <?php
 namespace App\Controllers;
-use App\Models\GeneralModel;
+use App\Models\DatosModel;
 
 class General extends BaseController{
 	
 	public function index(){
 		
-		$gModel = new GeneralModel();
+		$gModel = new DatosModel();
 		$mensaje = session('mensaje');
 		$datos = $gModel->listarTodo();
 		$data = ["datos" => $datos,
@@ -18,7 +18,7 @@ class General extends BaseController{
 	}
 	
 	public function obtenerDatos($id){
-		$gModel = new GeneralModel();
+		$gModel = new DatosModel();
 		$data = ["id" => $id];
 		$respuesta = $gModel->obtenerInformacion($data);
 		
@@ -28,7 +28,7 @@ class General extends BaseController{
 	}
 	
 	public function insertar(){
-		$gModel = new GeneralModel();
+		$gModel = new DatosModel();
 		$data = [
 			"nombre" => $_POST['nombre'],
 			"a_paterno" => $_POST['apaterno'],
@@ -48,7 +48,7 @@ class General extends BaseController{
 	
 	public function actualizar(){
 		
-		$gModel = new GeneralModel();
+		$gModel = new DatosModel();
 		$data = [
 			"nombre" => $_POST['nombre'],
 			"a_paterno" => $_POST['apaterno'],
@@ -68,7 +68,7 @@ class General extends BaseController{
 	}
 			
 	public function eliminar($idPersona){
-		$gModel = new GeneralModel();
+		$gModel = new DatosModel();
 		$id = ["id" => $idPersona];
 		$respuesta = $gModel->eliminar($id);
 		
